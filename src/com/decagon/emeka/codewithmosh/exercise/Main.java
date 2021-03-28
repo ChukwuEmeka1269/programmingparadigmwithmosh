@@ -1,5 +1,7 @@
 package com.decagon.emeka.codewithmosh.exercise;
 
+import java.text.NumberFormat;
+
 /**
  * This program makes use of the Object Oriented Programming concept
  * More specifically, it implements the use of Encapsulation
@@ -21,12 +23,15 @@ public class Main {
     public static void main(String[] args) {
         var employee = new Employee();
 
-        employee.baseSalary = 50_000;
-        employee.hourlyRate = 10;
+        employee.setBaseSalary(50_000);
+        employee.getBaseSalary();
+        employee.setHourlyRate(100);
+        employee.getHourlyRate();
 
         int wage = employee.calculateWage(20);
+        String formatWage = NumberFormat.getCurrencyInstance().format(wage);
 
-        System.out.println( "Your Wage is: " + wage);
+        System.out.println( "Your Wage is: " + formatWage);
     }
 
 }
