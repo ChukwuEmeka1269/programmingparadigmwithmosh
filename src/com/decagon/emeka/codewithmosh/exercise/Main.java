@@ -1,7 +1,10 @@
 package com.decagon.emeka.codewithmosh.exercise;
 
+import java.text.NumberFormat;
+
 /**
- * This program is an exercise of procedural programming paradigm
+ * This program makes use of the Object Oriented Programming concept
+ * More specifically, it implements the use of Encapsulation
  * It calculates the wages of employees based on three(3) inputs namely:
  * baseSalary
  * extraHours
@@ -18,25 +21,13 @@ public class Main {
      *
      */
     public static void main(String[] args) {
-	    int baseSalary = 50_000;
-	    int extraHours = 10;
-	    int hourlyRate = 20;
-    int wage = calculateWage(baseSalary, extraHours, hourlyRate); //Called calculateWage method
-        System.out.println( "Your Wage is: " + wage);
+        var employee = new Employee(50_000, 1_000);
+        Browser browser = new Browser();
+
+        int wage = employee.calculateWage(20);
+        String formatWage = NumberFormat.getCurrencyInstance().format(wage);
+
+        System.out.println( "Your Wage is: " + formatWage);
     }
 
-    /**
-     * Created a method for calculating wages called calculateWage using the below parameter
-     * @param baseSalary = minimum wage
-     * @param extraHours = overtime payment
-     * @param hourlyRate = pay per hour
-     * @return
-     */
-    public static int calculateWage(
-            int baseSalary,
-            int extraHours,
-            int hourlyRate) {
-        return baseSalary + (extraHours * hourlyRate);
-
-    }
 }
